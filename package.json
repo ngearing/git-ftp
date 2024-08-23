@@ -1,0 +1,26 @@
+{
+	"name": "git-ftp",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "set -a; source .env && echo $FTP_USER",
+		"env": "set -a; source .env; set +a",
+		"unset": "unset $(grep -v '^#' .env | sed -E 's/(.*)=.*/\\1/' | xargs -t)",
+		"build": "docker build --tag ngearing/git-ftp .",
+		"push": "set -a; source .env && docker run -it -v $(pwd):/tmp -w /tmp ngearing/git-ftp git ftp push -u $FTP_USER -p $FTP_PASS --insecure $FTP_PATH",
+		"download": "set -a; source .env && docker run -it -v $(pwd):/tmp -w /tmp ngearing/git-ftp git ftp download -u $FTP_USER -p $FTP_PASS --insecure $FTP_PATH"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/ngearing/git-ftp.git"
+	},
+	"keywords": [
+		"git",
+		"ftp",
+		"docker",
+		"git-ftp"
+	],
+	"author": "",
+	"license": "ISC",
+	"homepage": "https://github.com/ngearing/git-ftp#readme"
+}
