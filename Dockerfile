@@ -11,4 +11,6 @@ RUN git clone https://github.com/git-ftp/git-ftp.git /opt/git-ftp \
 && make install \
 && rm -rf /opt/git-ftp
 
+WORKDIR /tmp
+
 CMD ["bash"]

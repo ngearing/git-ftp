@@ -15,3 +15,7 @@ set -a; source .env && docker run -it -v $(pwd):/tmp -w /tmp ngearing/git-ftp gi
 ```
 
 Check the `git-ftp` repository for more details: [git-ftp](https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md)
+
+# BitBucket
+
+Checkout `bitbucket-pipelines.yml` file for example.
