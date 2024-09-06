@@ -19,3 +19,5 @@ Check the `git-ftp` repository for more details: [git-ftp](https://github.com/gi
 # BitBucket
 
 Checkout `bitbucket-pipelines.yml` file for example.
+
+Don't forget to run `git ftp init` first as the pipeline will fail otherwise.

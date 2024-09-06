@@ -8,4 +8,4 @@ pipelines:
           deployment: production
           image: ngearing/git-ftp
           script:
-            - git ftp push -u $FTP_USER -p $FTP_PASS $FTP_PATH
+            - git ftp push -u $FTP_USER -p $FTP_PASS $FTP_URL
