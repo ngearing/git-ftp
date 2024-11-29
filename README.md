@@ -1,23 +1,37 @@
 # Setup
 
-Rename `example.env` to `.env` and fill out your ftp details.
+```bash
+git config git-ftp.user john
+git config git-ftp.url ftp.example.com
+git config git-ftp.password secr3t
+git config git-ftp.syncroot path/dir
+git config git-ftp.cacert caCertStore
+git config git-ftp.deployedsha1file mySHA1File
+git config git-ftp.insecure 1
+git config git-ftp.key ~/.ssh/id_rsa
+git config git-ftp.keychain user@example.com
+git config git-ftp.remote-root htdocs
+git config git-ftp.disable-epsv 1
+git config git-ftp.no-commit 1
+```
 
 # Push
 
 ```bash
-set -a; source .env && docker run -it -v $(pwd):/tmp -w /tmp ngearing/git-ftp git ftp push -u $FTP_USER -p $FTP_PASS --insecure $FTP_PATH
+docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp push
 ```
 
 # Download
 
 ```bash
-set -a; source .env && docker run -it -v $(pwd):/tmp -w /tmp ngearing/git-ftp git ftp download -u $FTP_USER -p $FTP_PASS --insecure $FTP_PATH
+docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp download
 ```
 
 Check the `git-ftp` repository for more details: [git-ftp](https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md)
 
 # BitBucket
 
-Checkout `bitbucket-pipelines.yml` file for example.
+See `bitbucket-pipelines.yml` file for example.
+You will need to setup variables: `FTP_USER`, `FTP_PASS`, `FTP_URL` for your pipeline.
 
 Don't forget to run `git ftp init` first as the pipeline will fail otherwise.
