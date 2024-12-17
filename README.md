@@ -16,16 +16,24 @@ git config git-ftp.no-commit 1
 ```
 
 # Push
-
+Unix
 ```bash
 docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp push
 ```
-
+Windows
+```powershell
+docker run -it -v ${PWD}:/tmp ngearing/git-ftp /bin/bash -c "git reset --hard && git ftp push"
+```
 # Download
-
+Unix
 ```bash
 docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp download
 ```
+Windows
+```powershell
+docker run -it -v ${PWD}:/tmp ngearing/git-ftp /bin/bash -c "git reset --hard && git ftp download"
+```
+
 
 Check the `git-ftp` repository for more details: [git-ftp](https://github.com/git-ftp/git-ftp/blob/master/man/git-ftp.1.md)
 
