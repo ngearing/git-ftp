@@ -4,8 +4,10 @@
 	"description": "",
 	"scripts": {
 		"build": "docker build --tag ngearing/git-ftp .",
-		"push": "docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp push",
-		"download": "docker run -it -v $(pwd):/tmp ngearing/git-ftp git ftp download"
+		"download:win": "docker run -it -v %cd%:/tmp ngearing/git-ftp /bin/bash -c \"git reset --hard && git ftp download\"",
+		"download:unix": "docker run -it -v $(pwd):/tmp ngearing/git-ftp /bin/bash -c \"git reset --hard && git ftp download\"",
+		"push:win": "docker run -it -v %cd%:/tmp ngearing/git-ftp /bin/bash -c \"git reset --hard && git ftp push\"",
+		"push:unix": "docker run -it -v $(pwd):/tmp ngearing/git-ftp /bin/bash -c \"git reset --hard && git ftp push\""
 	},
 	"repository": {
 		"type": "git",
