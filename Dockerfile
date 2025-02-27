@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
